@@ -1,5 +1,9 @@
-import type { ButtonProps } from "../types/types";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import s from "./Button.module.css";
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+}
 
 const Button = ({ children, ...rest }: ButtonProps) => {
   return (

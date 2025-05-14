@@ -17,8 +17,12 @@ export interface Car {
   mileage: number;
 }
 
-// export interface ButtonProps
-//   extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface CarsResponse {
+  cars: Car[];
+  page: number;
+  totalPages: number;
+  totalCars: number;
+}
 
 export interface Paginations {
   page: number;
@@ -26,10 +30,10 @@ export interface Paginations {
 }
 
 export interface FilterParams {
-  brand: string;
-  rentalPrice: string;
-  minMileage: string;
-  maxMileage: string;
+  brand?: string;
+  rentalPrice?: string;
+  minMileage?: string;
+  maxMileage?: string;
 }
 
 export type Params = Paginations & FilterParams;

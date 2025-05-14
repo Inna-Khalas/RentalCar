@@ -6,12 +6,20 @@ interface CatalogValues {
   items: Car[];
   isLoading: boolean;
   error: string | null;
+  page: number;
+  limit: number;
+  totalPages: number;
+  totalCars: number;
 }
 
 const initialState: CatalogValues = {
   items: [],
   isLoading: false,
   error: null,
+  page: 1,
+  limit: 100,
+  totalPages: 0,
+  totalCars: 0,
 };
 
 export const slice = createSlice({
@@ -26,7 +34,10 @@ export const slice = createSlice({
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload;
+        state.items = action.payload.cars;
+        state.page = action.payload.page;
+        state.totalPages = action.payload.totalPages;
+        state.totalCars = action.payload.totalCars;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.isLoading = false;
