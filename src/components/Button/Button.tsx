@@ -1,13 +1,13 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import s from "./Button.module.css";
+import clsx from "clsx";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const Button = ({ children, ...rest }: ButtonProps) => {
+const Button = ({ children, className, ...rest }: ButtonProps) => {
   return (
-    <button {...rest} className={s.button}>
+    <button {...rest} className={clsx(className)}>
       {children}
     </button>
   );
