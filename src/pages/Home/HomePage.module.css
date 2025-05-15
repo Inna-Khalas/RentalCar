@@ -2,4 +2,64 @@
   background-image: url("../../assets/Picture.png");
   background-size: cover;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 52px;
+  min-width: 320px;
+  height: 700px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titleText {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: #3470ff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.button:hover {
+  background: #0b44cd;
 }

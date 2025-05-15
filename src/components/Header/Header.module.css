@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: 1px solid #f2f4f7;
+  padding: 24px 120px;
+  height: 68px;
+  background: #f2f4f7;
+}

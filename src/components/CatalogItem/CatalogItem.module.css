@@ -1,0 +1,16 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: #3470ff;
+}
+
+.link {
+  text-decoration: none;
+}
