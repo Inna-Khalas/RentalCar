@@ -1,28 +1,23 @@
 import { useDispatch } from "react-redux";
-import CatalogList from "../../components/CatalogList";
-import Header from "../../components/Header";
+import CatalogList from "../../components/CatalogList/CatalogList";
 import { useEffect } from "react";
-import { fetchCars } from "../../redux/operations";
+import { fetchCars } from "../../redux/cars/operations";
 import { useSelector } from "react-redux";
-import { selectCatalog } from "../../redux/selectors";
 import type { AppDispatch } from "../../redux/store";
+import { selectCatalog } from "../../redux/cars/selectors";
 
 const CatalogPage = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { items, page, limit, totalCars, totalPages, isLoading, error } =
+  const { items, page, limit, totalCars, totalPages } =
     useSelector(selectCatalog);
-
-  console.table(items);
-
   useEffect(() => {
     dispatch(fetchCars({ page, limit }));
   }, [page, limit, dispatch]);
 
   return (
     <div>
-      <Header />
-      <CatalogList cars={items} isLoading={isLoading} error={error} />
+      <CatalogList cars={items} />
       {totalCars} {totalPages}
     </div>
   );
