@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const URL = axios.create({
+export const RENTAL_CAR_API = axios.create({
   baseURL: "https://car-rental-api.goit.global/",
 });

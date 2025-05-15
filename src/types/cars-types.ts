@@ -24,16 +24,35 @@ export interface CarsResponse {
   totalCars: number;
 }
 
-export interface Paginations {
+export interface PaginationsParams {
   page: number;
   limit: number;
 }
 
-export interface FilterParams {
+export interface CarsFilterParams {
   brand?: string;
   rentalPrice?: string;
   minMileage?: string;
   maxMileage?: string;
 }
 
-export type Params = Paginations & FilterParams;
+export type CarsParams = PaginationsParams & CarsFilterParams;
+
+export const defaultValue: Car = {
+  id: "",
+  year: 0,
+  brand: "",
+  model: "",
+  type: "",
+  img: "",
+  description: "",
+  fuelConsumption: "",
+  engineSize: "",
+  accessories: [],
+  functionalities: [],
+  rentalPrice: "",
+  rentalCompany: "",
+  address: "",
+  rentalConditions: [],
+  mileage: 0,
+};
