@@ -2,14 +2,14 @@ import { useSelector } from "react-redux";
 import { selectCar } from "../../redux/cars/selectors";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { fetchCarsDetails } from "../../redux/cars/operations";
 import type { AppDispatch } from "../../redux/store";
 import BookingForm from "../../components/BookingForm/BookingForm";
 
 const CarDetails = () => {
   const carDetails = useSelector(selectCar);
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -17,6 +17,17 @@ const CarDetails = () => {
       dispatch(fetchCarsDetails(id));
     }
   }, [id, dispatch]);
+
+  const conditions = useMemo(() => {
+    const rentalConditions = carDetails?.rentalConditions ?? [];
+
+    return rentalConditions.map((c, index) => <li key={index}>{c}</li>);
+  }, [carDetails?.rentalConditions]);
+
+  const functionals = useMemo(() => {
+    const functionalities = carDetails?.functionalities ?? [];
+    return functionalities.map((f, index) => <li key={index}>{f}</li>);
+  }, [carDetails?.functionalities]);
 
   if (!carDetails) {
     return <div>Loading...</div>;
@@ -31,8 +42,6 @@ const CarDetails = () => {
     address,
     type,
     mileage,
-    rentalConditions,
-    functionalities,
     engineSize,
     fuelConsumption,
     description,
@@ -48,11 +57,7 @@ const CarDetails = () => {
       <p>{description}</p>
 
       <h2>Rental Conditions:</h2>
-      <ul>
-        {rentalConditions.map((c, index) => (
-          <li key={index}>{c}</li>
-        ))}
-      </ul>
+      <ul>{conditions}</ul>
 
       <h2>Car Specifications:</h2>
       <ul>
@@ -63,11 +68,7 @@ const CarDetails = () => {
       </ul>
 
       <h2>Accessories and functionalities:</h2>
-      <ul>
-        {functionalities.map((f, index) => (
-          <li key={index}>{f}</li>
-        ))}
-      </ul>
+      <ul>{functionals}</ul>
       <BookingForm />
     </div>
   );

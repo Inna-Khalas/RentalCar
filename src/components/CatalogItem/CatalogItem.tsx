@@ -20,13 +20,30 @@ const CatalogItem = ({ car }: Props) => {
     type,
     mileage,
   } = car;
+
+  const [city, country] = address.split(", ").slice(1);
+  const formatter = new Intl.NumberFormat("ru-RU").format(mileage);
+
   return (
-    <div>
-      <img src={img} alt={brand} width="276px" height="268px" />
-      <h2>{`${brand} ${model} ${year}`}</h2>
-      <p>${rentalPrice}</p>
-      <p>{`${address} ${rentalCompany} ${type} ${mileage}`}</p>
-      <Link to={`/catalog/${id}`} className={s.link}>
+    <div className={s.wrapper}>
+      <Link to={`/cars/${id}`} className={s.link}>
+        <img
+          src={img}
+          alt={brand}
+          width="276px"
+          height="268px"
+          className={s.image}
+        />
+        <div className={s.textWrapper}>
+          <div className={s.titleWrapper}>
+            <h2 className={s.title}>
+              {brand} <span className={s.span}>{model}</span> {year}
+            </h2>
+            <p className={s.price}>${rentalPrice}</p>
+          </div>
+          <p className={s.text}>{`${city} | ${country} | ${rentalCompany}`}</p>{" "}
+          <p className={s.text}>{`${type} | ${formatter} km`}</p>
+        </div>
         <Button className={s.button}>Read more</Button>
       </Link>
     </div>
