@@ -14,12 +14,14 @@ function App() {
     <>
       <Header />
       <Suspense fallback={<BeatLoader color="#3470ff" speedMultiplier={2} />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:id" element={<CarDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/cars" element={<CatalogPage />} />
+            <Route path="/cars/:id" element={<CarDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </Suspense>
     </>
   );
