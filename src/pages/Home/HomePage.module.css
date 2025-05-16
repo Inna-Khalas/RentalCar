@@ -2,4 +2,44 @@
   background-image: url("../../assets/Picture.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.titleText {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #dcdcdc;
+  margin: 0;
+  padding-top: 16px;
+}
+
+.button {
+  margin-top: 32px;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 60px;
 }
