@@ -5,3 +5,5 @@ export const selectCatalog = (state: RootType) => state.catalog;
 export const selectCar = (state: RootType) => state.catalog.car;
 export const selectIsLoading = (state: RootType) => state.catalog.isLoading;
 export const selectError = (state: RootType) => state.catalog.error;
+export const selectBrands = (state: RootType) => state.catalog.brands || [];
+export const selectFilter = (state: RootType) => state.catalog.filters;

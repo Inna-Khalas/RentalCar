@@ -25,8 +25,8 @@ export interface CarsResponse {
 }
 
 export interface PaginationsParams {
-  page: number;
-  limit: number;
+  page?: number;
+  limit?: number;
 }
 
 export interface CarsFilterParams {
