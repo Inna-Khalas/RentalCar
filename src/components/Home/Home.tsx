@@ -5,15 +5,13 @@ const Home = () => {
   return (
     <>
       <div className={s.background}>
-        <div className={s.container}>
-          <div className={s.title}>
-            <h1 className={s.titleText}>Find your perfect rental car</h1>
-            <p className={s.text}>
-              Reliable and budget-friendly rentals for any journey
-            </p>
+        <div className={s.title}>
+          <h1 className={s.titleText}>Find your perfect rental car</h1>
+          <p className={s.text}>
+            Reliable and budget-friendly rentals for any journey
+          </p>
 
-            <Button className={s.button}>View Catalog</Button>
-          </div>
+          <Button className={s.button}>View Catalog</Button>
         </div>
       </div>
     </>

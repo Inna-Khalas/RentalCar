@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import s from "../Navigation/Nav.module.css";
+import clsx from "clsx";
 
 function Navigation() {
   const getNavLinkClass = ({
@@ -10,7 +10,7 @@ function Navigation() {
     isPending: boolean;
     isTransitioning: boolean;
   }) =>
-    classNames(s.link, {
+    clsx(s.link, {
       [s.active]: isActive,
     });
   return (
@@ -18,7 +18,7 @@ function Navigation() {
       <NavLink to="/" className={getNavLinkClass}>
         Home
       </NavLink>
-      <NavLink to="/catalog" className={getNavLinkClass}>
+      <NavLink to="/cars" className={getNavLinkClass}>
         Catalog
       </NavLink>
     </nav>
