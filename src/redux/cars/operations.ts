@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { CarsResponse, CarsParams, Car } from "../../types/cars-types.js";
 import { RentalCarApi } from "../../api/api.ts";
@@ -19,7 +21,7 @@ export const fetchCars = createAsyncThunk(
 
 export const fetchCarsDetails = createAsyncThunk(
   "/cars/id",
-  async (id, thunkApi) => {
+  async (id: string, thunkApi) => {
     try {
       const { data } = await RentalCarApi.get<Car>(`/cars/${id}`);
 

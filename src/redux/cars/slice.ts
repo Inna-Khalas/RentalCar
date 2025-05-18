@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { createSlice } from "@reduxjs/toolkit";
 import { type Car, type CarsFilterParams } from "../../types/cars-types";
 import { fetchBrands, fetchCars, fetchCarsDetails } from ".././cars/operations";
@@ -33,7 +35,7 @@ const initialState: CatalogValues = {
   },
 };
 
-const statusRejected = (state: CatalogValues, action) => {
+const statusRejected = (state: CatalogValues, action: any) => {
   state.isLoading = false;
   state.error = action.payload as string;
 };

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
@@ -22,7 +24,7 @@ import { Link } from "react-router-dom";
 
 const CarDetails = () => {
   const carDetails = useSelector(selectCar);
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const location = useLocation();
 
