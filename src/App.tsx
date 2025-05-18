@@ -13,7 +13,13 @@ function App() {
   return (
     <>
       <Header />
-      <Suspense fallback={<BeatLoader color="#3470ff" speedMultiplier={2} />}>
+      <Suspense
+        fallback={
+          <div className="loaderWrapper">
+            <BeatLoader color="#3470ff" speedMultiplier={2} />
+          </div>
+        }
+      >
         <div className="container">
           <Routes>
             <Route path="/" element={<HomePage />} />

@@ -4,8 +4,8 @@
   justify-content: center;
   gap: 16px;
   padding: 24px 24px 0 24px;
-  border-radius: 14px;
   margin-bottom: 56px;
+  align-items: flex-end;
 }
 
 .column {
@@ -79,8 +79,7 @@
 
 .inputLeft:focus,
 .inputRight:focus {
-  border-color: #3470ff;
-  background-color: #fff;
+  background: #f7f7f7;
   outline: none;
 }
 
@@ -90,9 +89,9 @@
 }
 .button {
   width: 156px;
-  height: 44px;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
   color: #fff;
+  padding: 0;
 }

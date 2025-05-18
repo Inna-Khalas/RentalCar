@@ -1,0 +1,77 @@
+.formWrapper {
+  background-color: inherit;
+  border: 1px dashed #3470ff;
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.subText {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input,
+.textarea {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input:focus,
+.textarea:focus {
+  background-color: #fff;
+  border: 1px, solid #ccc;
+}
+
+.dateInput {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.error {
+  color: #e63946;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.button {
+  margin-top: 8px;
+  color: #fff;
+  width: 156px;
+}

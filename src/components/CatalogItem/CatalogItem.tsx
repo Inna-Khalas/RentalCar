@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import type { Car } from "../../types/cars-types";
 import Button from "../Button/Button";
 import s from "./CatalogItem.module.css";
+import { useLocation } from "react-router";
 
 interface Props {
   car: Car;
 }
 
 const CatalogItem = ({ car }: Props) => {
+  const location = useLocation();
+
   const {
     id,
     img,
@@ -26,7 +29,11 @@ const CatalogItem = ({ car }: Props) => {
 
   return (
     <div className={s.wrapper}>
-      <Link to={`/cars/${id}`} className={s.link}>
+      <Link
+        to={`/cars/${id}`}
+        className={s.link}
+        state={{ from: location.pathname }}
+      >
         <img
           src={img}
           alt={brand}

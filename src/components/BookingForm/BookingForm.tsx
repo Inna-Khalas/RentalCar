@@ -1,10 +1,11 @@
 import { Formik, Form, Field, useField, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import iziToast from "izitoast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import Button from "../Button/Button";
-import iziToast from "izitoast";
+import s from "./BookingForm.module.css";
 
 const DateField = ({ ...props }) => {
   const [{ value }, , { setValue }] = useField(props);
@@ -15,6 +16,7 @@ const DateField = ({ ...props }) => {
       onChange={(date) => setValue(date)}
       dateFormat="yyyy-MM-dd"
       placeholderText="Booking date"
+      className={`${s.input} ${s.dateInput}`}
     />
   );
 };
@@ -49,31 +51,51 @@ const BookingForm = () => {
     resetForm();
   };
   return (
-    <div>
-      <h1>Book your car now</h1>
-      <p>Stay connected! We are always ready to help you.</p>
+    <div className={s.formWrapper}>
+      <h2 className={s.title}>Book your car now</h2>
+      <p className={s.subText}>
+        Stay connected! We are always ready to help you.
+      </p>
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label>
-            <Field name="name" placeholder="Name*" />
-            <ErrorMessage name="name" component="div" className="error" />
+        <Form className={s.form}>
+          <label className={s.label}>
+            <Field name="name" placeholder="Name*" className={s.input} />
+            <ErrorMessage name="name" component="div" className={s.error} />
           </label>
-          <label>
-            <Field name="email" type="email" placeholder="Email*" />
-            <ErrorMessage name="email" component="div" className="error" />
+
+          <label className={s.label}>
+            <Field
+              name="email"
+              type="email"
+              placeholder="Email*"
+              className={s.input}
+            />
+            <ErrorMessage name="email" component="div" className={s.error} />
           </label>
-          <label>
+
+          <label className={s.label}>
             <DateField name="date" />
-            <ErrorMessage name="date" component="div" className="error" />
+            <ErrorMessage name="date" component="div" className={s.error} />
           </label>
-          <label>
-            <Field as="textarea" name="comment" placeholder="Comment" />
+
+          <label className={s.label}>
+            <Field
+              as="textarea"
+              name="comment"
+              placeholder="Comment"
+              className={s.textarea}
+            />
           </label>
-          <Button type="submit">Send</Button>
+          <div className={s.buttonWrapper}>
+            <Button type="submit" className={s.button}>
+              Send
+            </Button>
+          </div>
         </Form>
       </Formik>
     </div>

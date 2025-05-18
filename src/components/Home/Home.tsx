@@ -1,5 +1,6 @@
 import Button from "../Button/Button";
 import s from "../../pages/Home/HomePage.module.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -10,8 +11,9 @@ const Home = () => {
           <p className={s.text}>
             Reliable and budget-friendly rentals for any journey
           </p>
-
-          <Button className={s.button}>View Catalog</Button>
+          <Link to="/cars">
+            <Button className={s.button}>View Catalog</Button>
+          </Link>
         </div>
       </div>
     </>
