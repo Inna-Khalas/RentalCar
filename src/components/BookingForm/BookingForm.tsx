@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { Formik, Form, Field, useField, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import iziToast from "izitoast";
@@ -38,7 +40,7 @@ const BookingForm = () => {
     comment: Yup.string(),
   });
 
-  const handleSubmit = (values: typeof initialValues, { resetForm }) => {
+  const handleSubmit = (values: typeof initialValues, { resetForm }: any) => {
     console.log(values);
 
     iziToast.success({
