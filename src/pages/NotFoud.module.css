@@ -1,0 +1,34 @@
+.wrapper {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 96px;
+  font-weight: bold;
+  color: #3470ff;
+}
+
+.message {
+  font-size: 24px;
+  color: #555;
+}
+
+.homeLink {
+  padding: 12px 24px;
+  background-color: #3470ff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.homeLink:hover {
+  background-color: #265bbf;
+}

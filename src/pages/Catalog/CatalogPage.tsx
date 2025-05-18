@@ -1,29 +1,39 @@
 import { useDispatch } from "react-redux";
-import CatalogList from "../../components/CatalogList";
-import Header from "../../components/Header";
+import CatalogList from "../../components/CatalogList/CatalogList";
 import { useEffect } from "react";
-import { fetchCars } from "../../redux/operations";
+import { fetchBrands, fetchCars } from "../../redux/cars/operations";
 import { useSelector } from "react-redux";
-import { selectCatalog } from "../../redux/selectors";
 import type { AppDispatch } from "../../redux/store";
+import { selectCatalog } from "../../redux/cars/selectors";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import LoadMore from "../../components/LoadMore/LoadMore";
+import { setPage } from "../../redux/cars/slice";
 
 const CatalogPage = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { items, page, limit, totalCars, totalPages, isLoading, error } =
+  const { items, page, limit, totalPages, filters } =
     useSelector(selectCatalog);
 
-  console.table(items);
+  useEffect(() => {
+    dispatch(fetchBrands());
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchCars({ page, limit }));
-  }, [page, limit, dispatch]);
+    dispatch(fetchCars({ page, limit, ...filters }));
+  }, [page, limit, filters, dispatch]);
+
+  const loadMoreHandler = () => {
+    if (page < totalPages) dispatch(setPage(page + 1));
+  };
+
+  const hasMore = page < totalPages;
 
   return (
     <div>
-      <Header />
-      <CatalogList cars={items} isLoading={isLoading} error={error} />
-      {totalCars} {totalPages}
+      <SearchBar />
+      <CatalogList cars={items} />
+      <LoadMore onClick={loadMoreHandler} hasMore={hasMore} />
     </div>
   );
 };
