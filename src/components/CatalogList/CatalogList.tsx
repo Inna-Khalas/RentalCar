@@ -21,10 +21,10 @@ const CatalogList = ({ cars }: CatalogListProps) => {
   // }
 
   return (
-    <div className={s.listWrapper}>
+    <ul className={s.listWrapper}>
       {error && <p className={s.message}>{error}</p>}
-      <div className={s.wrapper}>{catalogItems}</div>
-    </div>
+      <li className={s.wrapper}>{catalogItems}</li>
+    </ul>
   );
 };
 
