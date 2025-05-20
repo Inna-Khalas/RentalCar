@@ -2,12 +2,12 @@
 
 import { Formik, Form, Field, useField, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import iziToast from "izitoast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import Button from "../Button/Button";
 import s from "./BookingForm.module.css";
+import toast from "react-hot-toast";
 
 const DateField = ({ ...props }) => {
   const [{ value }, , { setValue }] = useField(props);
@@ -43,12 +43,16 @@ const BookingForm = () => {
   const handleSubmit = (values: typeof initialValues, { resetForm }: any) => {
     console.log(values);
 
-    iziToast.success({
-      title: "Success",
-      message: "Your car has been successfully booked!",
-      position: "topRight",
-      timeout: 2000,
-      progressBar: true,
+    toast.success("Your car has been successfully booked!", {
+      style: {
+        border: "1px solid #3470ff",
+        padding: "16px",
+        color: "#3470ff",
+      },
+      iconTheme: {
+        primary: "#3470ff",
+        secondary: "#FFFAEE",
+      },
     });
     resetForm();
   };

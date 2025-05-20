@@ -3,6 +3,7 @@ import "./App.css";
 import { lazy, Suspense } from "react";
 import Header from "./components/Header/Header";
 import { BeatLoader } from "react-spinners";
+import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("./pages/Home/HomePage"));
 const CatalogPage = lazy(() => import("./pages/Catalog/CatalogPage"));
@@ -12,6 +13,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <>
+      <Toaster />
       <Header />
       <Suspense
         fallback={
